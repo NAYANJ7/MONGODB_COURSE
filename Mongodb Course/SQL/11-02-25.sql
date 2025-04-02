@@ -1,0 +1,43 @@
+USE org123;
+
+CREATE TABLE Student (
+  S_ID INT PRIMARY KEY,
+  S_Name VARCHAR(25) NOT NULL,
+  S_Department VARCHAR(25) NOT NULL
+);
+
+INSERT INTO Student VALUES 
+  (1001, 'Shubham', 'CSE'),
+  (1002, 'Joy', 'CSE'),
+  (1003, 'Ujjwal', 'CSE');
+
+SELECT * FROM Student;
+
+CREATE TABLE VIT (
+  S_ID INT PRIMARY KEY,
+  S_CGPA VARCHAR(5) NOT NULL
+);
+
+INSERT INTO VIT VALUES 
+  (1001, '8.2'),
+  (1003, '8.5'),
+  (1007, '9.5');
+
+SELECT * FROM VIT;
+
+USE org123;
+
+SELECT * FROM Student CROSS JOIN VIT;
+
+SELECT * FROM Student INNER JOIN VIT ON Student.S_ID = VIT.S_ID;
+
+SELECT * FROM Student NATURAL JOIN VIT;
+
+SELECT * FROM Student LEFT JOIN VIT ON Student.S_ID = VIT.S_ID;
+
+SELECT * FROM Student RIGHT JOIN VIT ON Student.S_ID = VIT.S_ID;
+
+SELECT * FROM Student LEFT JOIN VIT ON Student.S_ID = VIT.S_ID
+UNION
+SELECT * FROM Student RIGHT JOIN VIT ON Student.S_ID = VIT.S_ID;
+
